@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Modal from './modal';
 
-function App() {
+const App = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => setShowModal(true);
+  const handleHideModal = () => setShowModal(false);
+console.log(showModal)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="row">
+      <button className="btn btn-default btn-block" onClick={handleShowModal}>Open Modal</button>
+      {showModal 
+      ? <Modal handleHideModal={handleHideModal} />
+      :<></>}
     </div>
   );
-}
+};
 
-export default App;
+export default App; 
+
+
+
+
+
+
